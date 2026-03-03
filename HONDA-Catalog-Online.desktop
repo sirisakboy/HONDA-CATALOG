@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=HONDA CATALOG (Online)
+Name[th]=สมุดภาพ อะไหล่ HONDA (ออนไลน์)
+Comment=Open HONDA parts catalog online
+Comment[th]=เปิดดูแคตตาล็อกอะไหล่ HONDA แบบออนไลน์
+Exec=chromium https://www.suparat.net/pssretail/
+Icon=/home/boy/HONDA-CATALOG/online/Images/Logo.png
+Terminal=false
+Categories=Application;Utility;

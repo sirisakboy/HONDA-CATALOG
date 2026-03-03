@@ -1,0 +1,150 @@
+﻿//import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js';
+import '../lib/vanilla-cookieconsent/dist/cookieconsent.umd.js';
+
+CookieConsent.run({
+
+    cookie: {
+        expiresAfterDays: acceptType => {
+            return acceptType === 'all'
+                ? 365.25
+                : 30.5;
+        }
+    },
+    categories: {
+        necessary: {
+            enabled: true,  // this category is enabled by default
+            readOnly: true  // this category cannot be disabled
+        },
+        analytics: {
+            readOnly: false,
+            autoClear: {
+                cookies: [
+                    {
+                        name: /^(_ga)/      //regex
+                    },
+                    {
+                        name: '_gid'        //string
+                    }
+                ]
+            }
+        }
+    },
+
+    language: {
+        default: 'th',
+        autoDetect: 'document',
+        translations: {
+            th: {
+                consentModal: {
+                    title: 'เราใช้ Cookies',
+                    description: 'เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก "การตั้งค่าคุกกี้"',
+                    acceptAllBtn: 'ยอมรับทั้งหมด',
+                    showPreferencesBtn: 'การตั้งค่าคุกกี้'
+                },
+                preferencesModal: {
+                    title: 'การตั้งค่าคุกกี้',
+                    acceptAllBtn: 'ยอมรับทั้งหมด',
+                    savePreferencesBtn: 'ยอมรับคุกกี้ที่เลือก',
+                    closeIconLabel: 'ปิด',
+                    sections: [
+                        {
+                            title: 'คุกกี้ที่จำเป็นเท่านั้น',
+                            description: 'คุกกี้เหล่านี้มีความจำเป็นต่อการทำงานของเว็บไซต์ จึงไม่สามารถปิดการใช้งานได้',
+
+                            //this field will generate a toggle linked to the 'necessary' category
+                            linkedCategory: 'necessary'
+                        },
+                        {
+                            title: 'คุกกี้เพื่อเพิ่มประสิทธิภาพและการวิเคราะห์',
+                            description: 'คุกกี้เหล่านี้จะเก็บข้อมูลการใช้งานเว็บไซต์ของเราโดยไม่ระบุตัวตนของคุณ เพื่อให้เราใช้ปรับปรุงการทำงานของเว็บไซต์ให้ดีขึ้น',
+                            linkedCategory: 'analytics'
+                        },
+                        {
+                            title: 'ข้อมูลเพิ่มเติม',
+                            description: 'หากมีคำถามเพิ่มเติมเกี่ยวกับนโยบายคุกกี้ของเรา กรุณาติดต่อเรา'
+                        }
+                    ]
+                }
+            },
+            en: {
+                consentModal: {
+                    title: 'We use cookies',
+                    description: 'We use cookies to improve your experience and performance on our website. You can manage your preferences by clicking "Manage Preferences".',
+                    acceptAllBtn: 'Accept all',
+                    showPreferencesBtn: 'Manage preferences'
+                },
+                preferencesModal: {
+                    title: 'Manage cookie preferences',
+                    acceptAllBtn: 'Accept all',
+                    acceptNecessaryBtn: 'Reject all',
+                    savePreferencesBtn: 'Accept current selection',
+                    closeIconLabel: 'Close modal',
+                    sections: [
+                        {
+                            title: 'Strictly Necessary cookies',
+                            description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+
+                            //this field will generate a toggle linked to the 'necessary' category
+                            linkedCategory: 'necessary'
+                        },
+                        {
+                            title: 'Performance and Analytics',
+                            description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+                            linkedCategory: 'analytics'
+                        },
+                        {
+                            title: 'More information',
+                            description: 'For any queries in relation to my policy on cookies and your choices, please contact us.'
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    onFirstConsent: () => {
+        logConsent();
+    },
+
+    onChange: () => {
+        logConsent();
+    },
+    guiOptions: {
+        consentModal: {
+            layout: 'box',
+            position: 'bottom left',
+            flipButtons: false,
+            equalWeightButtons: true
+        },
+        preferencesModal: {
+            layout: 'box',
+            // position: 'left right',
+            flipButtons: false,
+            equalWeightButtons: true
+        }
+    },
+    revision: 1
+});
+
+function logConsent() {
+
+    // Retrieve all the fields
+    const cookie = CookieConsent.getCookie();
+    const preferences = CookieConsent.getUserPreferences();
+
+    const userConsent = {
+        ConsentId: cookie.consentId,
+        AcceptType: preferences.acceptType,
+        AcceptedCategories: preferences.acceptedCategories,
+        RejectedCategories: preferences.rejectedCategories,
+        revision: cookie.revision
+    };
+
+
+    fetch(BASEURL + '/Consent/LogCookieConsent', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userConsent)
+    });
+}
