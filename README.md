@@ -1,81 +1,56 @@
 # 🏍️ HONDA CATALOG - สมุดภาพอะไหล่ฮอนด้า
 
-แคตตาล็อกอะไหล่ฮอนด้า ใช้งานได้ทั้ง **ออนไลน์** และ **ออฟไลน์**
-
-## 📦 โครงสร้างโปรเจค
-
-```
-HONDA-CATALOG/
-├── online/          # เวอร์ชันออนไลน์ (เชื่อมต่อกับเซิร์ฟเวอร์)
-├── offline/         # เวอร์ชันออฟไลน์ (ใช้งานได้ tanpa internet)
-└── docs/            # เอกสารประกอบ
-```
+ลิงก์เข้าสู่เว็บไซต์แคตตาล็อกอะไหล่ฮอนด้าออนไลน์
 
 ## 🚀 การใช้งาน
 
-### แบบออฟไลน์ (แนะนำ)
-
-เปิดไฟล์จากโฟลเดอร์ `offline/`:
+### เปิดเว็บไซต์
 
 ```bash
-# Linux
-chromium /home/boy/HONDA-CATALOG/offline/index.html
-firefox /home/boy/HONDA-CATALOG/offline/index.html
-
-# Windows
-start HONDA-CATALOG\offline\index.html
-
-# macOS
-open HONDA-CATALOG/offline/index.html
+# ดับเบิลคลิกไอคอนบน Desktop
+# หรือรันคำสั่ง
+/home/boy/HONDA-CATALOG/open-online.sh
 ```
 
-### แบบออนไลน์
-
-เปิดไฟล์จากโฟลเดอร์ `online/`:
+### หรือเปิดด้วยเบราว์เซอร์
 
 ```bash
-chromium /home/boy/HONDA-CATALOG/online/index.html
+chromium https://www.suparat.net/pssretail/
+firefox https://www.suparat.net/pssretail/
 ```
 
 ## 📊 ข้อมูลเว็บไซต์
 
 | รายการ | ค่า |
 |--------|-----|
-| **ไฟล์ทั้งหมด** | 289 ไฟล์ |
-| **ขนาดรวม** | ~16 MB |
-| **หน้า HTML** | 37 หน้า |
-| **รูปภาพ** | ~70 รูป (Promotion) |
-| **CSS/JS** | Bootstrap, Font Awesome, Slick |
+| **เว็บไซต์** | https://www.suparat.net/pssretail/ |
+| **ผู้ให้บริการ** | สุภรัตน์มอเตอร์ |
+| **ประเภท** | แคตตาล็อกอะไหล่ฮอนด้าออนไลน์ |
 
-## 📋 หมวดหมู่ที่มี
+## 📋 ฟีเจอร์
 
-- 🏠 **หน้าหลัก** - แสดงโปรโมชั่นและค้นหาอะไหล่
-- 📝 **สมัครสมาชิก** - ลงทะเบียนผู้ใช้ใหม่
-- 🔐 **เข้าสู่ระบบ** - Login
-- 🛒 **ตะกร้าสินค้า** - เลือกและสั่งซื้ออะไหล่
-- 🖼️ **รูปภาพโปรโมชั่น** - โปรโมชั่นทั้งหมด
-- 🔍 **ค้นหารุ่นรถ** - เลือกตามรุ่น HONDA
+- 🔍 **ค้นหาอะไหล่** - ค้นหารุ่นรถหรือรหัสอะไหล่
+- 🛒 **ตะกร้าสินค้า** - เพิ่มสินค้าและสั่งซื้อ
+- 📦 **ติดตามคำสั่งซื้อ** - ตรวจสอบสถานะการสั่งซื้อ
+- 👤 **บัญชีผู้ใช้** - จัดการข้อมูลส่วนตัว
 
-## 🏷️ รุ่นรถที่รองรับ
+## 🏷️ รุ่นรถ HONDA ที่รองรับ (49 รุ่น)
 
 ADV150, ADV160, ADV350, AIR BLADE, AIR BLADE-i, C125, CB150R, CB300FA, CB300R, CBR150R, CBR250R, CBR250RR, CBR300R, CL300, CLICK110, CLICK110i, CLICK125i, CLICK150i, CLICK160, CRF250L, CRF250M, CRF300L, CT125, CZ-i, DREAM110i, DREAM125, FORZA300, FORZA350, Giorno Plus, ICON, LEAD125, MOOVE, MSX125, MSX GROM, PCX125, PCX150, PCX160, PHANTOM200, REBEL300, SCOOPY, SCOOPY-i, SONIC125, SPACY-i, SUPER CUB, WAVE100X, WAVE100Z, WAVE110i, WAVE110i AT, WAVE125, WAVE125i, WAVE125R, WAVE125S, WAVE125X, ZOOMER-X
 
 ## 📝 หมายเหตุ
 
-- **เวอร์ชันออฟไลน์**: ใช้งานได้ทันทีโดยไม่ต้องเชื่อมต่ออินเทอร์เน็ต
-- **เวอร์ชันออนไลน์**: ต้องเชื่อมต่ออินเทอร์เน็ต (สำหรับโหลดทรัพยากรจาก CDN)
-- ข้อมูลเป็นแบบ Static (ดาวน์โหลดมาจากเว็บไซต์)
-- ไม่สามารถสั่งซื้อจริงได้ (เป็นเพียงカタログสำหรับดูข้อมูล)
+- ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อใช้งาน
+- ต้องสมัครสมาชิกเพื่อสั่งซื้อสินค้า
+- เว็บไซต์เป็นของ สุภรัตน์มอเตอร์ (ผู้จำหน่ายอะไหล่ฮอนด้า)
 
-## 📄 License
+## 🔗 ลิงก์ที่เกี่ยวข้อง
 
-โครงการนี้สร้างเพื่อการศึกษาและใช้งานส่วนตัว
-
-## 🔗 แหล่งที่มา
-
-เว็บไซต์ต้นฉบับ: https://www.suparat.net/pssretail/
+- เว็บไซต์หลัก: https://www.suparat.net/pssretail/
+- GitHub: https://github.com/sirisakboy/HONDA-CATALOG
 
 ---
 
-**สร้างเมื่อ:** 03/03/2025
-**โดย:** HONDA PSSRE Offline Project
+**สร้างเมื่อ:** 03/03/2025  
+**โดย:** HONDA PSSRE Offline Project  
+**อัพเดทล่าสุด:** ลบเวอร์ชันออฟไลน์ - ใช้งานเฉพาะออนไลน์

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=สมุดภาพ อะไหล่ HONDA
+Name[th]=สมุดภาพ อะไหล่ HONDA
+Comment=Open HONDA parts catalog
+Comment[th]=เปิดดูแคตตาล็อกอะไหล่ HONDA
+Exec=/home/boy/HONDA-CATALOG/open-online.sh
+Icon=/home/boy/HONDA-CATALOG/online/Images/Logo.png
+Terminal=false
+Categories=Application;Utility;
